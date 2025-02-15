@@ -65,7 +65,7 @@ function _() {
 
     a.play()
         .then(() => {
-            a.currentTime = 60 + 29;
+            a.currentTime = 87;
             fadeIn();
         })
         .catch(() => alert("Tap to play music! "))
