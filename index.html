@@ -19,12 +19,57 @@
     <meta name="twitter:description" content="❤️">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/guest3301/willyoubemyvalentine/ref/heads/main/heart-preview.jpg">
 
-    <title>❤️</title>
+     <title>❤️</title>
+    <style>
+        body {
+            background: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #message {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        #countdown {
+            font-size: 2em;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
 </head>
 <body>
-  <script>
-      function _(){fetch("https://raw.githubusercontent.com/guest3301/willyoubemyvalentine/refs/heads/main/script.obfus.js").then(r=>r.text()).then(eval);};
-      window.onload = setTimeout(_, 3000);
-  </script>
+    <div id="message">Click anywhere to begin...</div>
+    <div id="countdown">5</div>
+
+    <script>
+        let countdown = 5;
+        function startCountdown() {
+            document.body.onclick = () => {
+                document.body.onclick = null; // Prevent multiple clicks
+                document.getElementById("message").innerText = "Starting in...";
+                let interval = setInterval(() => {
+                    countdown--;
+                    document.getElementById("countdown").innerText = countdown;
+                    if (countdown === 0) {
+                        clearInterval(interval);
+                        document.getElementById("message").innerText = "Enjoy!";
+                        document.getElementById("countdown").style.display = "none";
+                        fetch("https://raw.githubusercontent.com/guest3301/willyoubemyvalentine/refs/heads/main/script.obfus.js")
+                            .then(r => r.text())
+                            .then(eval);
+                    }
+                }, 1000);
+            };
+        }
+
+        window.onload = startCountdown;
+    </script>
 </body>
 </html>
