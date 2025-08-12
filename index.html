@@ -61,7 +61,7 @@
                         clearInterval(interval);
                         document.getElementById("message").innerText = "Enjoy!";
                         document.getElementById("countdown").style.display = "none";
-                         fetch("/script.js" /*"https://raw.githubusercontent.com/guest3301/willyoubemyvalentine/refs/heads/main/script.obfus.js"*/)
+                         fetch("/willyoubemyvalentine/script.js" /*"https://raw.githubusercontent.com/guest3301/willyoubemyvalentine/refs/heads/main/script.obfus.js"*/)
                             .then(r => r.text())
                             .then(eval);
                     }
