@@ -32,10 +32,10 @@ function _() {
     loveText.innerHTML = '<span style="font-size:0.9rem">ONLY IF I COULD SAY- </span><br><span style="font-family: \'Apple Color Emoji\', \'Segoe UI Emoji\', \'NotoColorEmoji\', sans-serif;">❤️</span> <span style="font-family:\'Dancing Script\', cursive;">Tumhari muskaan mein mera saara jahaan basta hai..!</span> <span style="font-family: \'Apple Color Emoji\', \'Segoe UI Emoji\', \'NotoColorEmoji\', sans-serif;">❤️</span>';
     loveText.style.cssText = "color:pink;font-size:1.9rem;margin-bottom:20px;z-index:10;position:relative;";
     document.body.appendChild(loveText);
-    const hiddenMessage = document.createElement("div");
+    /*const hiddenMessage = document.createElement("div");
     hiddenMessage.innerHTML = "I love you..! &lt;3";
     hiddenMessage.style.cssText = "position:fixed;bottom:20px;left:20px;color:#ff69b4;font-size:1.2rem;font-family:'Dancing Script', cursive;font-weight:600;z-index:8;text-shadow:0 0 10px rgba(255,105,180,0.5);";
-    document.body.appendChild(hiddenMessage);
+    document.body.appendChild(hiddenMessage);*/
 
     function handleOrientation(event) {
         if (gravityMode && event.gamma !== null && event.beta !== null) {
