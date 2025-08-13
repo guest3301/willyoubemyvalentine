@@ -224,7 +224,7 @@ function _() {
             heartInterval = setInterval(createHeart, 400);
         }
         
-        overlay.style.background = `rgba(0,0,0,${gravityMode ? 0.85 : 0.95})`;
+        overlay.style.background = `rgba(0,0,0,${gravityMode ? 0.65 : 0.95})`;
     });
 
     heartInterval = setInterval(createHeart, 400);
