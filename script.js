@@ -95,7 +95,8 @@ const imageList = [
     "image11.png",
     "image12.png",
     "image13.png",
-    "image14.png"
+    "image14.png",
+    "image15.png"
 ];
 
     let currentImageIndex = 0;
@@ -135,7 +136,7 @@ const imageList = [
             background-position:center;
             background-repeat:no-repeat;
             z-index:2;
-            clip-path:path('M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5 C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z');        
+ clip-path:polygon(50% 5%, 83% 20%, 100% 50%, 83% 80%, 50% 95%, 17% 80%, 0% 50%, 17% 20%);
             `;
 
         currentImageIndex = (currentImageIndex + 1) % imageList.length;
