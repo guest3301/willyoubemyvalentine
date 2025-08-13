@@ -92,8 +92,7 @@ const imageList = [
     "image11.png",
     "image12.png",
     "image13.png",
-    "image14.png",
-    "image15.png"
+    "image14.png"
 ];
 
     let currentImageIndex = 0;
