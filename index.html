@@ -49,11 +49,50 @@
     <div id="countdown">5</div>
 
     <script>
-        let countdown = 5;
+        function enterFullscreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) {
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+
+        function exitFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+        }
+
+        function createCloseButton() {
+            const closeBtn = document.createElement("button");
+            closeBtn.innerHTML = "×";
+            closeBtn.style.cssText = "position:fixed;top:20px;left:20px;width:40px;height:40px;border:none;border-radius:50%;background:rgba(255,255,255,0.3);color:white;font-size:1.5rem;cursor:pointer;z-index:20;backdrop-filter:blur(10px);transition:all 0.3s ease;";
+            closeBtn.addEventListener('mouseenter', () => {
+                closeBtn.style.background = "rgba(255,255,255,0.5)";
+                closeBtn.style.transform = "scale(1.1)";
+            });
+            closeBtn.addEventListener('mouseleave', () => {
+                closeBtn.style.background = "rgba(255,255,255,0.3)";
+                closeBtn.style.transform = "scale(1)";
+            });
+            closeBtn.addEventListener('click', exitFullscreen);
+            document.body.appendChild(closeBtn);
+        }
+
         function startCountdown() {
             document.body.onclick = () => {
-                document.body.onclick = null; // Prevent multiple clicks
+                document.body.onclick = null;
                 document.getElementById("message").innerText = "Starting in...";
+                
+                enterFullscreen();
+                
+                let countdown = 5;
                 let interval = setInterval(() => {
                     countdown--;
                     document.getElementById("countdown").innerText = countdown;
@@ -61,7 +100,10 @@
                         clearInterval(interval);
                         document.getElementById("message").innerText = "Enjoy!";
                         document.getElementById("countdown").style.display = "none";
-                         fetch("/willyoubemyvalentine/script.js" /*"https://raw.githubusercontent.com/guest3301/willyoubemyvalentine/refs/heads/main/script.obfus.js"*/)
+                        
+                        createCloseButton();
+                        
+                        fetch("/willyoubemyvalentine/script.js" /*"https://raw.githubusercontent.com/guest3301/willyoubemyvalentine/refs/heads/main/script.obfus.js"*/)
                             .then(r => r.text())
                             .then(eval);
                     }

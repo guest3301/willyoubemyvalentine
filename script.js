@@ -8,7 +8,7 @@ function _() {
     let gravityY = 1;
     let heartInterval;
     let allHearts = [];
-
+    
     const overlay = document.createElement("div");
     overlay.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:5;pointer-events:none;";
     overlay.style.maskImage = "radial-gradient(circle 120px at 0px 0px, transparent 40%, black 60%)";
@@ -128,13 +128,14 @@ function _() {
         sh.velocityX = 0;
         sh.velocityY = 0;
         sh.life = gravityMode ? Infinity : 8000;
+        sh.timeoutId = null;
         
         document.body.appendChild(sh);
         allHearts.push(sh);
         
         if (!gravityMode) {
             sh.style.animation = `floatUp ${Math.random()*4+4}s linear infinite`;
-            setTimeout(() => {
+            sh.timeoutId = setTimeout(() => {
                 sh.remove();
                 const index = allHearts.indexOf(sh);
                 if (index > -1) allHearts.splice(index, 1);
@@ -185,6 +186,10 @@ function _() {
             clearInterval(heartInterval);
             
             allHearts.forEach(heart => {
+                if (heart.timeoutId) {
+                    clearTimeout(heart.timeoutId);
+                    heart.timeoutId = null;
+                }
                 heart.style.animation = 'none';
                 const rect = heart.getBoundingClientRect();
                 heart.style.left = `${(rect.left / window.innerWidth) * 100}vw`;
@@ -207,13 +212,13 @@ function _() {
                 heart.style.bottom = '0';
                 heart.style.top = 'auto';
                 
-                setTimeout(() => {
+                heart.timeoutId = setTimeout(() => {
                     if (heart.parentNode) {
                         heart.remove();
                         const index = allHearts.indexOf(heart);
                         if (index > -1) allHearts.splice(index, 1);
                     }
-                }, 8000);
+                }, 10000);
             });
             
             heartInterval = setInterval(createHeart, 400);
