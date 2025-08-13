@@ -82,9 +82,6 @@ function _() {
 
 
 const imageList = [
-    "image1.png",
-    "image2.png",
-    "image3.png",
     "image4.png",
     "image5.png",
     "image6.png",
@@ -125,19 +122,19 @@ const imageList = [
         const heartImage = document.createElement("div");
         const currentImage = imageList[currentImageIndex % imageList.length];
         heartImage.style.cssText = `
-            position:absolute;
+         position:absolute;
             top:50%;
             left:50%;
             transform:translate(-50%,-50%);
             width:0.8em;
             height:0.8em;
-            background-image:url('https://raw.githubusercontent.com/guest3301/willyoubemyvalentine/refs/heads/main/images/${currentImage}');
+          background-image:url('https://raw.githubusercontent.com/guest3301/willyoubemyvalentine/refs/heads/main/images/${currentImage}');
             background-size:cover;
             background-position:center;
             background-repeat:no-repeat;
             z-index:2;
-            clip-path:path('M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5 C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z');        
-            `;
+            clip-path:polygon(50% 5%, 83% 20%, 100% 50%, 83% 80%, 50% 95%, 17% 80%, 0% 50%, 17% 20%);
+        `;
 
         currentImageIndex = (currentImageIndex + 1) % imageList.length;
 
