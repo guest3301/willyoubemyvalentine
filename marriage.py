@@ -20,18 +20,19 @@ time.sleep(1)
 run_sl()
 time.sleep(1.5)
 print("Hey there! Durgesh here")
-mayuri = input("Mayuri, will you marry me? (yes/no): ").strip().lower()
+time.sleep(3)
+mayuri = input("Ms Khadus, will you be my Mr Khadus? Will you marry me, in the courtroom? Are you surely and conciously willing to hold my hand, forever and ever..? In my ups and downs, will you be with me? Will you always be together, in our ups and downs, no matter what, nothing can set us apart, expect death, on this earth? and do you love me..? cause' I do! (yes/no): ").strip().lower()
 
 if mayuri == "yes":
     words = ["yayyy!", "eurekaaaa!", "wooohooo!", "yaaasss!", "foreverrrr!"]
     for i, w in enumerate(words, start=1):
         run_cowsay(w)
         time.sleep(0.7)
-    print("💍 Marriage confirmed! Yay!!!")
+    print("💍 Yechhh!! Marriage confirmed! Yay!!!")
 elif mayuri == "no":
     run_cowsay("Heart Error: 💔")
     print("Exiting gracefully with infinite sadness...")
 else:
     run_cowsay("Undefined response detected...")
     print("Warning: Love still insists...")
-    run_cowsay(">>> What we started must be completed ❤️")
+    run_cowsay(">>> What we started must be completed... ❤️")
